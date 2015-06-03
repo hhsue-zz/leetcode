@@ -13,6 +13,11 @@ class Node:
     def __str__(self):
         return str(self.data)
 
+    def list_nodes(self):
+        while self:
+            print self.data
+            self = self.next 
+
 a = Node(1,Node(2,Node(3)))
 print a
 print a.next
@@ -34,4 +39,6 @@ print d
 e = Node(8)
 d = Node(7,e)
 
+print "starting over"
 
+a.list_nodes()

@@ -1,0 +1,36 @@
+'''
+[1,1,1,2,2,3]
+[1,1,2,2,3],3]  -> compare index with modified_length (cumulative)
+'''
+
+class Solution:
+    # @param {integer[]} nums
+    # @return {integer}
+    def removeDuplicates(self, nums):
+        current = None
+        count = 1
+        cumulative = 0
+        for i in range(len(nums)):
+            if nums[i] != current:
+                count = 1
+                current = nums[i]
+                cumulative += 1
+                nums[cumulative] = nums[i]
+            else:
+                count += 1
+                if count < 3:
+                    cumulative += 1
+                    nums[cumulative] = nums[i]
+                else:
+                    pass
+        return nums[:cumulative]
+
+
+                
+
+
+s = Solution()
+print s.removeDuplicates([1,1,1,1,2,2,3])
+#print s.removeDuplicates([1,1,1])
+
+
